@@ -89,7 +89,7 @@ st.markdown("""
 nasdaq = price_metric[price_metric['symbol'] == 'NASDAQ:Composite']
 tesla = price_metric[price_metric['symbol'] == 'TSLA:NASDAQ']
 vinfast = price_metric[price_metric['symbol'] == 'VFS:NASDAQ']
-st.dataframe(price_metric)
+# st.dataframe(price_metric)
 metrics = [
   {"name": "NASDAQ Index", "value":  nasdaq['price'].values[0] , "change":nasdaq['change_percent'].values[0]},  
   {"name": "NASDAQ Volume", "value": nasdaq['volume'].values[0], "change": 0},
