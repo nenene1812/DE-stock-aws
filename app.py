@@ -6,13 +6,16 @@ import plotly.express as px
 
 from pyathena import connect
 
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 
 # Initialize connection 
-conn = connect(aws_access_key_id='AKIA4DAZ3SRXYSZPGY6L',
-               aws_secret_access_key='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',
-               s3_staging_dir='s3://nasdaq-index-etl/query_results/',
-               region_name='us-east-1')
+conn = connect(aws_access_key_id = os.environ["AWS_ACCESS_KEY_ID"],
+               aws_secret_access_key = os.environ["AWS_SECRET_ACCESS_KEY"],
+               s3_staging_dir = os.environ["S3_STAGING_DIR"],
+               region_name = os.environ["REGION_NAME"])
 
 # Execute query
 last_update = pd.read_sql("""
